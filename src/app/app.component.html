@@ -1,36 +1,13 @@
-<h1>Пример шаблонной формы</h1>
-
-<!-- Назначая директиву так, как сейчас - ngForm, мы получаем её экземпляр в локальную переменную formDir: -->
-<form #formDir="ngForm" (ngSubmit)="submit($event)">
+<h3>Task #1</h3>
+<form #formDir="ngForm">
 
   <p>
-    Имя:
-    <input type="text" name="name" [(ngModel)]="name" />
+    Enter number:
+    <input type="text" name="num" [(ngModel)]="num" />
+    <strong *appErrorInput="isNumber(num)" style="color: red; margin-left: 10px;">
+      ERROR! Value is not number
+    </strong>
   </p>
-
-  <!-- Создавая группу, мы собираем значения внутри неё в объект: -->
-  <div ngModelGroup="address">
-    <p>
-      Страна:
-      <input type="text" name="country" ngModel (ngModelChange)="countryModelChange($event)" />
-    </p>
-
-    <p>Город: <input type="text" name="city" ngModel /></p>
-  </div>
-
-  <button>Отправить</button>
-  <p *ngIf="formSubmitted">Форма отправлена!</p>
 
 </form>
 <hr />
-
-<strong>Сериализованное текущее значение формы:</strong>
-
-<!-- Здесь мы обращаемся к экземпляру директивы ngForm и обращаемся к созданной внутри реактивной форме: -->
-<pre>{{formDir.form.value | json}}</pre>
-
-<strong>Значение поля имени:</strong>
-<pre>{{name}}</pre>
-
-<strong>Значение поля страны:</strong>
-<pre>{{country}}</pre>
