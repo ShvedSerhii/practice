@@ -9,6 +9,7 @@ import { NgForm } from "@angular/forms";
 export class AppComponent {
   formSubmitted: boolean;
   num: string = "";
+  date: Date = new Date();
 
   isNumber(num) {
     return isNaN(+num);
