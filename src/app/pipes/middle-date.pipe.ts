@@ -5,8 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class MiddleDatePipe implements PipeTransform {
   transform(value: any): string {
-    return (
-      value.getDate() + '.' + (value.getMonth() + 1) + '.' + value.getFullYear()
-    );
+    return `${value.getDate()}.${value.getMonth() + 1}.${value.getFullYear()}`;
   }
 }
